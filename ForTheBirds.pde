@@ -32,7 +32,8 @@ void setup() {
 void draw(){
   background(0);  
 
-  translate(width/2, height/2, height/2 - mouseY);
+  translate(width/2, height/2, height*0.75); // - mouseY
+  rotateX((-float(mouseY) / float(height) + 0.5) * PI);
 
   // Rotate around y and x axes
   rotateY(float(mouseX) / float(width) * 2*PI);

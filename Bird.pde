@@ -5,7 +5,7 @@ class Bird {
 
   // Properties
   float SPEED = 0.3;
-  float RADIUS = width/5;
+  float RADIUS = width/3;
   float ESCAPE_RADIUS = width/10;
   float MAX_DIST = width*0.3;
   float w, h, d;
@@ -65,12 +65,12 @@ class Bird {
         float dist = this.position.dist(bird.position);
         if (dist <= RADIUS) {
           PVector weighted = bird.direction.copy();
-          weighted.setMag(dist/RADIUS + RADIUS*0.1);
+          weighted.setMag(dist/RADIUS * 5 + RADIUS*0.3);
           //PVector initial = bird.direction.copy();
           //initial.setMag(RADIUS);
           PVector clump = this.position.copy();
           clump.sub(bird.position);
-          clump.setMag(RADIUS*0.8);
+          clump.setMag(RADIUS*0.1);
           //avgVelocity.add(initial);
           avgVelocity.add(weighted);
           avgVelocity.add(clump);
@@ -123,7 +123,7 @@ class Bird {
     float phi = -acos(this.direction.z/this.direction.mag());
     translate(this.position.x, this.position.y, this.position.z);
     rotateY(phi);
-    rotateZ(theta+PI/4);
+    rotateZ(theta-PI/2);
 
     fill(#EEEEFF);
 
@@ -136,7 +136,7 @@ class Bird {
       0, 0-3*sin(this.step), 0 
     );
 
-    rotateZ(-theta-PI/4);
+    rotateZ(-theta+PI/2);
     rotateY(-phi);
     translate(-this.position.x, -this.position.y, -this.position.z);
 
