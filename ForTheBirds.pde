@@ -23,6 +23,10 @@ void setup() {
       )
     );
   }
+
+  for (Bird bird : birds) {
+    bird.setBirds(birds);
+  }
 }
 
 void draw(){
