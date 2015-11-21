@@ -7,7 +7,7 @@ class Bird {
   float SPEED = 0.3;
   float RADIUS = width/3;
   float ESCAPE_RADIUS = width/10;
-  float MAX_DIST = width*0.3;
+  float MAX_DIST = width*0.6;
   float w, h, d;
   PVector position, target, direction, acceleration;
   ArrayList<Bird> birds;
@@ -123,7 +123,7 @@ class Bird {
     float phi = -acos(this.direction.z/this.direction.mag());
     translate(this.position.x, this.position.y, this.position.z);
     rotateY(phi);
-    rotateZ(theta-PI/2);
+    rotateZ(theta);
 
     fill(#EEEEFF);
 
@@ -136,7 +136,7 @@ class Bird {
       0, 0-3*sin(this.step), 0 
     );
 
-    rotateZ(-theta+PI/2);
+    rotateZ(-theta);
     rotateY(-phi);
     translate(-this.position.x, -this.position.y, -this.position.z);
 

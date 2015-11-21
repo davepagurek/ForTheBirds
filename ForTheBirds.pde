@@ -3,6 +3,7 @@ float angle;
 
 Sky sky = new Sky();
 Water water = new Water();
+ArrayList<Cloud> clouds = new ArrayList<Cloud>();
 ArrayList<Bird> birds = new ArrayList<Bird>();
 
 
@@ -13,6 +14,12 @@ void setup() {
   noStroke();
   
   sky = new Sky();
+
+  for (int i = 0; i < 10; i++) {
+    clouds.add(
+      new Cloud()
+    );
+  }
 
   // Instantiate birds, passing in random vals for size and postion
   for (int i = 0; i < 300; i++){
@@ -41,6 +48,9 @@ void draw(){
   // Draw scene
   sky.draw();
   water.draw();
+  for (Cloud cloud : clouds) {
+    cloud.draw();
+  }
 
   // Draw birds
   for (Bird bird : birds) {
